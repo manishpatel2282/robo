@@ -19,8 +19,17 @@ trait HasBatteryChargeTrait
      *   
      * @return boolean
      */
-    public function letsChargeIt()
-    {        
-        return true;
+    public function letsChargeIt($isTest = false)
+    {   
+        //For unit testing only
+        if($isTest == true) {
+            return true;
+        }
+
+        for ($i = 1; $i <= 30; ++$i) {            
+            sleep(1);
+        }
+        if ($i == 30)
+            return true;
     }
 }

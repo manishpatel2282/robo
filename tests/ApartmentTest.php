@@ -29,7 +29,7 @@ class ApartmentTest extends TestCase
      */
     public function testLetsChargeIt()
     {        
-        $letsChargeIt = $this->letsChargeIt();
+        $letsChargeIt = $this->letsChargeIt($isTest=true);
         $this->assertTrue($letsChargeIt);
     }
 
@@ -47,9 +47,8 @@ class ApartmentTest extends TestCase
             $response = $obj->execute($message);
             $this->assertEquals('cleaning floor :'.$message, $response);
 
-            if ($i % 60 == 0) {
-                $this->letsChargeIt();
-                $letsChargeIt = $this->letsChargeIt();
+            if ($i % 60 == 0) {                
+                $letsChargeIt = $this->letsChargeIt($isTest=true);
                 $this->assertTrue($letsChargeIt);
             }
 
@@ -70,9 +69,8 @@ class ApartmentTest extends TestCase
             $response = $obj->execute($message);
             $this->assertEquals('cleaning floor :'.$message, $response);
 
-            if ($i % 30 == 0) {
-                $this->letsChargeIt();
-                $letsChargeIt = $this->letsChargeIt();
+            if ($i % 30 == 0) {                
+                $letsChargeIt = $this->letsChargeIt($isTest=true);
                 $this->assertTrue($letsChargeIt);
             }
 
